@@ -1,5 +1,51 @@
-$bgFundo: rgb(255, 0, 187);
+@use 'variaveis';
+@use 'reset';
+@use 'hero';
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10;
+    color: variaveis.$textoSecundario;
+}
+
+@mixin title($fontSize: 40px){
+    @include text($fontSize);
+    color: variaveis.$textoSecundario;
+}
+
+
+.text--big {
+    @include text(18px);
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.title--big {
+    @include title(44px);
+}
+
+.title {
+    @include title;
+}
+
+.title--small {
+    @include title(28px);
+}
+
+.link-text {
+    @include text(18px);
+    text-decoration: underline;
+}
+
 
 body {
-    background-color: $bgFundo;
+    font-family: Avenir, sans-serif;
+    background-color: variaveis.$corFundo;
 }
+
