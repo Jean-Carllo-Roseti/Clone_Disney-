@@ -1,4 +1,7 @@
+@use 'variaveis';
+
 * {
+    background-color: variaveis.$corFundo;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
