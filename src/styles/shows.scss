@@ -7,6 +7,10 @@ padding: 2vw 5.6vw;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 24px;
 
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
         &--is--active {
             display: grid;
         }
@@ -24,6 +28,10 @@ padding: 2vw 5.6vw;
         justify-content: center;
         margin-bottom: 60px;
 
+        @media (max-width: 768px) {
+            white-space:nowrap ;
+        }
+
         &__buttons {
             color: variaveis.$textoSecundario;
             font-size: 20px;
@@ -34,9 +42,16 @@ padding: 2vw 5.6vw;
             text-transform: uppercase;
             margin: 0 1vw;
             cursor: pointer;
-
+            &:hover {
+                background-color: transparent;
+            }
+            
             &--is--active {
                 border-color: variaveis.$textoSecundario;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
             }
         }
     }

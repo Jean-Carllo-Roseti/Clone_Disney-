@@ -1,6 +1,7 @@
 @use 'variaveis';
 
 * {
+    list-style: none;
     background-color: variaveis.$corFundo;
     box-sizing: border-box;
     margin: 0;

@@ -3,49 +3,76 @@
 @use 'hero';
 @use 'shows';
 @use 'plans';
+@use 'available-devices';
+@use 'faq';
+@use 'footer';
+@use 'header';
 
 
 @mixin text($fontSize: 16px) {
     font-size: $fontSize;
     line-height: $fontSize + 10;
-    color: variaveis.$textoSecundario;
+    color: variaveis.$textoPrincipal;
 }
 
 @mixin title($fontSize: 40px){
     @include text($fontSize);
-    color: variaveis.$textoSecundario;
+    color: variaveis.$textoPrincipal;
 }
 
 
 .text--big {
     @include text(18px);
+
+    @media (max-width: 768px) {
+        @include text (15px);
+    }
 }
 
 .text {
     @include text;
+
+    @media (max-width: 768px) {
+        @include text(14px);
+    }
 }
 
 .text--small {
     @include text(12px);
+
+    @media (max-width: 768px) {
+        @include text(11px);
+    }
 }
 
 .title--big {
     @include title(44px);
+
+    @media (max-width: 768px) {
+        @include title(26px);
+    }
 }
 
 .title {
     @include title;
+
+    @media (max-width: 768px) {
+        @include title(24px);
+    }
 }
 
 .title--small {
     @include title(28px);
+
+    @media (max-width: 768px) {
+        @include title(22px);
+    }
 }
 
 .link-text {
     @include text(18px);
     text-decoration: underline;
 }
-
 
 body {
     font-family: Avenir, sans-serif;
@@ -59,11 +86,16 @@ button {
     height: 60px;
     font-size: 18px;
     color: variaveis.$textoSecundario;
-    background-color: #6421ff;
+    background-color: variaveis.$botaoPrimaria;
     text-transform: uppercase;
     border-radius: 4px;
     margin-top: 2vw;
     margin-bottom: 8px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: lighten(variaveis.$botaoPrimaria, 3%);
+    }
 }
 
 .image-text-section {
@@ -71,6 +103,10 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+
+    @media (max-width:768px) {
+        display: block;
+    }
 
     img {
     max-width: 100%;
@@ -96,9 +132,16 @@ button {
             top: 0;
             height: 100%;
             left: 50%;
+            width: calc(50% - 5.6vw);
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background: none;
+            @media (max-width:768px) {
+                position: relative;
+                left: 0;
+                width: 100%;
+            }
         }
     }
 }

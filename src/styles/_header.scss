@@ -1,0 +1,108 @@
+@use 'variaveis';
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: variaveis.$corFundo;
+    transition: background-color, .5s ease;
+    z-index: 1;
+
+    &--is--hidden {
+        background-color: transparent;
+
+        .header {
+            &__logo, &__links__item__um {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+
+    &__container {
+        padding: 8px 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        @media (max-width: 768px) {
+            padding: 0 8px; 
+        }
+    }
+
+    &__logo {
+        max-width: 120px;
+        width: 100%;
+        margin: 0 10px;
+        transition: opacity, .5s ease;
+
+        @media (max-width: 768px) {
+            width: 60px;
+            margin: 10px;
+        }
+    }
+
+    &__links {
+
+        display: flex;
+        justify-content: space-between;
+        
+        &__item {
+            text-align: center;
+            margin: 0 2px;
+            list-style: none; 
+            transition: opacity, .5s ease;
+
+            a {
+                display: flex;
+                align-items: center;
+                height: 50px;
+                font-size: 18px;
+                color: variaveis.$textoSecundario;
+                text-transform: uppercase;
+                border-radius: 4px;
+                padding: 8px 14px;
+                text-decoration: none;
+                letter-spacing: 1px;
+                border: 1px solid;
+                transition: opacity, .5s ease;
+
+                @media (max-width:768px) {
+                    display: flex;
+                    align-items: center;
+                    height: 35px;
+                    font-size: 11px;
+                    color: variaveis.$textoSecundario;
+                    text-transform: uppercase;
+                    border-radius: 4px;
+                    padding: 10px 8px;
+                    text-decoration: none;
+                    border: 1px solid;
+                    transition: opacity, .5s ease;
+                }
+            }
+        }
+    }
+}
+
+a.secundary {
+    background-color: variaveis.$botaoSecundario;
+    border-color: variaveis.$botaoSecundario;
+    margin:0 5px;
+
+    &:hover {
+        background-color: lighten(variaveis.$botaoSecundario, 3%);
+    }
+}
+
+.dark {
+    background-color: rgba(variaveis.$botaoEntrar, 0.8);
+    border-color: variaveis.$textoSecundario;
+
+    &:hover {
+        color: variaveis.$corFundo;
+        background-color: lighten(variaveis.$textoSecundario, 3%);
+    }
+    
+}
+
